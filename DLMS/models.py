@@ -20,8 +20,8 @@ class User_t1(db.Model):
     Country=db.Column(db.String(35),nullable=False)
     Pincode=db.Column(db.Integer,nullable=False)
     LID=db.Column(db.String(10),db.ForeignKey('librarian_t1.LID'))
-    log=db.relationship('Log')
-    phoneNumber=db.relationship('User_t2')
+    '''log=db.relationship('Log')
+    phoneNumber=db.relationship('User_t2')'''
 
     def __repr__(self):
         return "User_t1('{self.UID},{self.First_Name},{self.Middle_Name},{self.Last_Name},{self.E_mail},{self.Password},{self.Gender},{self.DOB},{self.Bloog_Group},{self.Branch},{self.Programme},{self.Hostler_or_not},{self.Address_Line},{self.District},{self.State},{self.Country},{self.Pincode},{self.LID}')"
@@ -49,10 +49,10 @@ class Librarian_t1(db.Model):
     State = db.Column(db.String(35), nullable=False)
     Country = db.Column(db.String(35), nullable=False)
     Pincode = db.Column(db.Integer, nullable=False)
-    User=db.relationship('User_t1')
+    '''User=db.relationship('User_t1')
     Book=db.relationship('Book_t1')
     log = db.relationship('Log')
-    phoneNumber = db.relationship('Librarian_t2')
+    phoneNumber = db.relationship('Librarian_t2')'''
 
     def __repr__(self):
         return "Librarian_t1('{self.LID},{self.First_Name},{self.Middle_Name},{self.Last_Name},{self.E_mail},{self.Password},{self.Gender},{self.DOB},{self.Blood_Group},{self.Branch},{self.Education_Qualification},{self.Address_Line},{self.District},{self.State},{self.Country},{self.Pincode}')"
@@ -69,7 +69,7 @@ class Admin_t1(db.Model):
     User_Name=db.Column(db.String(20),primary_key=True,nullable=True)
     E_Mail = db.Column(db.String(120), unique=True, nullable=False)
     Password = db.Column(db.String(60), nullable=False)
-    phoneNumber=db.relationship('Admin_t2')
+    #phoneNumber=db.relationship('Admin_t2')
 
     def __repr__(self):
         return "Admin_t1('{self.User_Name},{self.Email},{self.Password}')"
@@ -94,10 +94,10 @@ class Book_t1(db.Model):
     Price = db.Column(db.Integer, nullable=True)
     Status = db.Column(db.Boolean(), nullable=False, default=True)
     LID = db.Column(db.String(10), db.ForeignKey('librarian_t1.LID'))
-    author = db.relationship('Book_t2')
+    '''author = db.relationship('Book_t2')
     subject = db.relationship('Book_t3')
     keywords=db.relationship('Book_t4')
-    log = db.relationship('Log')
+    log = db.relationship('Log')'''
 
     def __repr__(self):
         return "Book_t1('{self.BID},{self.ISBN},{self.Title},{self.Language},{self.Publisher},{self.Publisher_year},{self.Publisher_Place},{self.Total_No_Of_Pages},{self.Price},{self.Status},{self.LID}')"
